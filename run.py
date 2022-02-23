@@ -1,6 +1,11 @@
 import random
 
-def game(): 
+
+def game():
+    """starts the game, chooses a word randomly from the
+    words_to_guess list, checking if users guesses is correct according
+    to the word that was choosen"""
+
     words_to_guess = ["hangman", "computer", "python", "car", "girl", "boy"]
     word = random.choice(words_to_guess)
     chances = 10
@@ -31,62 +36,61 @@ def game():
             guess = input()
 
         if guess not in word:
-            turn = chances-1
-            if turn == 10:
+            chances = chances - 1
+            if chances == 9:
                 print("9 guesses left!!")
-                print("--------------")    
-            if turn == 8:
+                print("--------------")   
+            if chances == 8:
                 print("8 guesses left!!")
                 print("--------------")
                 print("       O      ")
-            if turn == 7:
+            if chances == 7:
                 print("7 guesses left!!")
                 print("--------------")
                 print("       O      ")    
                 print("       |      ")
-            if turn == 6:
+            if chances == 6:
                 print("6 guesses left!!")
                 print("--------------")
                 print("       O      ")    
                 print("       |      ")
                 print("      /       ")
-            if turn == 5:
+            if chances == 5:
                 print("5 guesses left!!")
                 print("--------------")
                 print("       O      ")    
                 print("       |      ")
                 print("      / \     ")
-            if turn == 4:
+            if chances == 4:
                 print("4 guesses left!!")
                 print("--------------")
                 print("       O      ")    
                 print("       |\     ")
                 print("      / \     ")   
-            if turn == 3:
+            if chances == 3:
                 print("3 guesses left!!")
                 print("--------------")
                 print("       O      ")    
                 print("      /|\     ")
                 print("      / \     ") 
-            if turn == 2:
+            if chances == 2:
                 print("2 guesses left!!")
                 print("--------------")
                 print("       O  |    ")    
                 print("      /|\     ")
                 print("      / \     ") 
-            if turn == 1:
+            if chances == 1:
                 print("only 1 guess left! save the hangman!!")
                 print("--------------")
                 print("       O_|    ")    
                 print("      /|\     ")
                 print("      / \     ")     
-            if turn == 0:
+            if chances == 0:
                 print("a good man died :(")
                 print("game over")
 
             
-player = input("ENTER YOUR NAME --> ")
-print("Welcome", player, "!")
+print("Welcome", input("ENTER YOUR NAME --> "), "!")
 print("Try to guess the word in less than 10 attempts")
 print("Good Luck")
 game()
